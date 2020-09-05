@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
-    app.use(cors());
+    // app.use(cors());
 }
 
 app.use(bodyParser.json());

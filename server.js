@@ -10,6 +10,12 @@ if(process.env.NODE_ENV !== 'production') {
     app.use(cors());
 }
 
+app.use(bodyParser.json());
+
+app.post('/getWidgetData', (req, res) => {
+    res.status(200).send(dataPoints);
+});
+
 let dataPoints = [
     { label: "WhatsApp Messenger", y: 6828},
     { label: "Facebook Messenger", y: 5589},
@@ -27,11 +33,6 @@ let widgets = [
     }
 ];
 
-app.use(bodyParser.json());
-
-app.post('/getWidgetData', (req, res) => {
-    res.status(200).send(dataPoints);
-});
 
 app.post('/getWidgets', (req, res) => {
     const { route } = req.body;

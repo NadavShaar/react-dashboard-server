@@ -1,12 +1,14 @@
-if(process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
 
+const cors = require('cors');
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const bodyParser = require('body-parser');
 // const { v1: uuidv1 } = require('uuid');
+
+if(process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+    app.use(cors());
+}
 
 let dataPoints = [
     { label: "WhatsApp Messenger", y: 6828},
@@ -26,7 +28,6 @@ let widgets = [
 ];
 
 app.use(bodyParser.json());
-app.use(cors());
 
 app.post('/getWidgetData', (req, res) => {
     res.status(200).send(dataPoints);

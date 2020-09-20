@@ -1,2 +1,2 @@
 # react-dashboard-server
-A node server for react-dashboard
+A node server for react-dashboard app.
